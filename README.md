@@ -1,3 +1,3 @@
 # algorithms
 
-- [Knuth–Morris–Pratt (KMP) algorithm](./kmp)
+- [Knuth–Morris–Pratt (KMP) algorithm](./Knuth-Morris-Pratt)
