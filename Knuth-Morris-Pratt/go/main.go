@@ -31,24 +31,24 @@ func Kmp(str string, word string) []int {
 		return positions
 	}
 
-	j := 0 // the position of the current character in argument `str`
-	k := 0 // the position of the current character in argument `word`
+	sp := 0 // the position of the current character in argument `str`
+	wp := 0 // the position of the current character in argument `word`
 	table := kmpTable(wordChars)
 
-	for j < strLen {
-		if wordChars[k] == strChars[j] {
-			j++
-			k++
+	for sp < strLen {
+		if wordChars[wp] == strChars[sp] {
+			sp++
+			wp++
 
-			if k == wordLen {
-				positions = append(positions, j-k)
-				k = table[k] // table[len(wordLen)] can't be -1
+			if wp == wordLen {
+				positions = append(positions, sp-wp)
+				wp = table[wp] // table[len(wordLen)] can't be -1
 			}
 		} else {
-			k = table[k]
-			if k < 0 {
-				j++
-				k++
+			wp = table[wp]
+			if wp < 0 {
+				sp++
+				wp++
 			}
 		}
 	}
@@ -69,7 +69,7 @@ func kmpTable(word []rune) []int {
 		return nil
 	}
 
-	table := make([]int, lenWord+1, lenWord+1)
+	table := make([]int, lenWord+1)
 	position := 1  // the current position we are computing in table
 	candidate := 0 // the zero-based index in `word` of the next character of the current candidate substring
 

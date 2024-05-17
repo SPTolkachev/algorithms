@@ -1,4 +1,4 @@
-module github.com/SPTolkachev/algorithms
+module github.com/SPTolkachev/algorithms/Knuth-Morris-Pratt
 
 go 1.22.3
 
